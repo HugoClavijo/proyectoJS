@@ -44,7 +44,7 @@
     padding: 10px;
     border: none;
     cursor: pointer;
-    
+     display:inline;
 }
 
 textarea {
@@ -75,4 +75,5 @@ textarea {
 #elements-container {
       width: 200px;
     display:inline;
+  
 }

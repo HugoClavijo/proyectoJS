@@ -114,7 +114,6 @@ function make_draggable(elements)
         $('div.editable').draggable({
                         appendTo: '.jumbotron',
                         containment: '.jumbotron',
-                        revert: "invalid",
                          stop: handleDragStop,
                         });
         
