@@ -42,7 +42,7 @@
 
 
 .editable {
-    background-color: #EAEAEA;
+    background-color: transparent;
     padding: 10px;
     border: none;
     cursor: pointer;
