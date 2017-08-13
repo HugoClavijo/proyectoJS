@@ -9,8 +9,6 @@
   <script src="../js/libs/jquery.min.js"></script>
   <script src="../js/libs/bootstrap.min.js"></script>
     <script src="../js/libs/jquery-ui.js"></script>
-    <script src="../js/principal.js"></script>
-    <script src="js/main.js"></script>
 </head>
 <body>
 
@@ -37,16 +35,39 @@
     </div>
   </div>
 </nav>
+<br>
 
-   
+<div id="Content">
+<button id="add-text" class="btn-primary">Insertar texto</button>
+<!--<button id="add-square" class="btn-primary">Insertar proceso</button>
+<button id="add-rombo" class="btn-primary">Insertar condición</button>
+<button id="add-ovalo" class="btn-primary">Insertar terminador</button>-->
+<button id="boton" class="btn-success">Guardar Diagrama</button>    
+</div> 
+    
+    <br>
+    <div id="elements-container">
+    </div>
+    <br>
+    
+    <div id="p-editor">
+        <h2>P Editor</h2>
+        <textarea rows="10" cols="50"></textarea>
+        <br />
+        <button class="save" type="button">Save</button>
+        <button class="done" type="button">Done editing</button>
+        <button class="delete" type="button">Delete</button>
+    </div>
+    
+    
 <div class="jumbotron">    
-  <div class="container text-center">  
-     <div id="content" style="height: 400px;">
-  <div id="makeMeDraggable"></div>
+<div id="content" style="height: 400px;">
 </div>
-  </div>
 </div>
     
+    
+    
+   
     
     <div class="container-fluid bg-3 text-center"> 
         <h3>Drag And Drop</h3><br>
@@ -90,8 +111,7 @@
 	</div>
 </div>-->
     
-    
-    
+    <script src="../js/principal.js"></script>
 </body>
 </html>
 
