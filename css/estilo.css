@@ -2,8 +2,8 @@
     width: 25px;
 }
 
-#iconn{
-    width: 200px;
+.iconn{
+    width: 250px;
 }
 
 #iconn1{
@@ -59,7 +59,7 @@ textarea {
 
 
 #p-editor, #div-editor {
-    background-color: green;
+    background-color: white;
     margin: 20px;
     padding: 10px;
     display: none;
@@ -76,4 +76,45 @@ textarea {
 
 #elements-container {
       width: 200px;
+}
+
+
+.oval {
+     width: 150px;
+     height: 70px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #5cb85c;
+}
+
+.rectangulo {
+     width: 150px; 
+     height: 80px; 
+     border: 3px solid #555;
+     background: yellow;
+}
+
+.rombo {
+     width: 100px; 
+     height: 100px; 
+     border: 3px solid #555; 
+     background: #428bca;
+     -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     -o-transform: rotate(45deg);
+     transform: rotate(45deg);
+}
+
+.paralelogramo {
+     width: 150px; 
+     height: 80px; 
+     border: 3px solid #555; 
+     background: #428bca;
+     -webkit-transform: skew(20deg);
+     -moz-transform: skew(20deg);
+     -ms-transform: skew(20deg);
+     -o-transform: skew(20deg);
+     transform: skew(20deg);
 }

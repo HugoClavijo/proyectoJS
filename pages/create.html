@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">  
+    <link rel="stylesheet" href="../css/jquery-ui.css">  
   <script src="../js/libs/jquery.min.js"></script>
   <script src="../js/libs/bootstrap.min.js"></script>
     <script src="../js/libs/jquery-ui.js"></script>
@@ -37,76 +38,42 @@
 </nav>
 
 <div class="jumbotron">    
-<div id="content" style="height: 400px;">
+<div id="content" style="height: 600px;">
 </div>
 </div>
-    
-    <div id="contentoptions">
-<button id="add-text" class="btn-primary">Insertar texto</button>
-<!--<button id="add-square" class="btn-primary">Insertar proceso</button>
-<button id="add-rombo" class="btn-primary">Insertar condición</button>
-<button id="add-ovalo" class="btn-primary">Insertar terminador</button>-->
+
+    <div id="contentoptions" class="container-fluid">
+<button id="add-ini" class="btn-primary">Insertar Inicio/Fin</button>
+<button id="add-pro" class="btn-primary">Insertar Proceso</button>        
+<button id="add-des" class="btn-primary">Insertar Descición</button>
+<button id="add-en" class="btn-primary">Insertar Entrada</button>
+<button id="add-up" class="btn-primary">Insertar Flecha Arriba</button>
+<button id="add-down" class="btn-primary">Insertar Flecha Abajo</button>
+<button id="add-right" class="btn-primary">Insertar Flecha Derecha</button>
+<button id="add-left" class="btn-primary">Insertar Flecha Izquierda</button>         
 <button id="guardar" class="btn-success">Guardar Diagrama</button>
 <button id="clear" class="btn-danger">Borrar Diagrama</button> 
-<button id="download" class="btn-default">Json</button> 
+<button id="download" class="btn-default">Consola Json</button> 
 </div> 
     
     <br>
+    <div class="container-fluid"> 
+    <div id="elements-container" class="row"></div>
+    </div>    
     
     <div id="p-editor">
-        <h2>P Editor</h2>
+        <h2>Editor</h2>
         <textarea rows="10" cols="50"></textarea>
+        <div class="checkbox">
+        <label>
+        <input id="inicio" type="checkbox"> Inicio/Final
+        </label>
+        </div>
         <br />
         <button class="save" type="button">Guardar</button>
         <button class="done" type="button">Cerrar</button>
         <button class="delete" type="button">Borrar</button>
     </div>
-    
-    
-    <div class="container-fluid bg-3 text-center"> 
-        <h3>Drag And Drop</h3><br>
-  <div class="row">
-    <div class="col-sm-3">
-        <div class="dragImg"><img id="iconn1" class="img" src="../images/flujo/ovalo.png"></div>
-                </div>
-        <div class="col-sm-3">
-        <div class="dragImg"><img id="iconn1" class="img" src="../images/flujo/rectangulo.png"></div>
-                </div>
-      <div class="col-sm-3">
-        <div class="dragImg"><img id="iconn1" class="img" src="../images/flujo/rombo.png"></div>
-                </div>
-      <div class="col-sm-3">
-        <div class="dragImg"><img id="iconn1" class="img" src="../images/flujo/up.png"></div>
-                </div>
-      <div class="col-sm-3">
-       <div class="dragImg"><img id="iconn1" class="img" src="../images/flujo/down.png"></div>
-                </div>
-       <div class="col-sm-3">
-        <div class="dragImg"><img id="iconn1" class="img" src="../images/flujo/right.png"></div>
-                </div>
-       <div class="col-sm-3">
-        <div class="dragImg"><img id="iconn1" class="img" src="../images/flujo/left.png"></div>
-                </div>
-       <div class="col-sm-3">
-            <div id="elements-container"></div>
-            </div>
-              </div>
-       
-        </div>
-
-     
-<!--<br style="clear:both">
-<div id="storage">
-	<div class="draggable">
-		<p>draggable-1</p>
-	</div>
-	<div class="draggable">
-		<p>draggable-2</p>
-	</div>
-	<div class="draggable">
-		<p>draggable-3</p>
-	</div>
-</div>-->
     
     <script src="../js/principal.js"></script>
 </body>
