@@ -30,7 +30,7 @@ $(".jumbotron").droppable({
         ui.helper.clone().appendTo('.jumbotron');
  }
 });*/
-    
+   
   //------------------------------------------------------------------------------------------------------------------------------------------------------      
     
      //Make every clone image unique.  
@@ -53,6 +53,7 @@ $(".jumbotron").droppable({
      $(this).append($(ui.helper).clone());
    //Pointing to the dragImg class in dropHere and add new class.
          $(".jumbotron .dragImg").addClass("item-"+counts[0]);
+           $(".jumbotron .img").attr("id","iconn");
             $(".jumbotron .img").addClass("imgSize-"+counts[0]);
                 
    //Remove the current class (ui-draggable and dragImg)
@@ -62,10 +63,11 @@ $(".item-"+counts[0]).dblclick(function() {
 $(this).remove();
 });     
 	make_draggable($(".item-"+counts[0]));
-      //$(".imgSize-"+counts[0]).resizable(resizeOpts);     
+      $(".imgSize-"+counts[0]).resizable(resizeOpts);     
        }
 
        }
+
       });
 
 
@@ -81,6 +83,10 @@ function make_draggable(elements)
 	});
 } 
 
+  $("#clear").click(function() {
+    window.localStorage.clear();
+    window.location.reload();
+  });
 //------------------------------------------------------------------------------------------------------------------------------------------------------ 
     
     $('#add-text').on('click', function () {
@@ -143,8 +149,30 @@ function make_draggable(elements)
     
 }
 
+
 function handleDragStop( event, ui ) {
   var offsetXPos = parseInt( ui.offset.left );
   var offsetYPos = parseInt( ui.offset.top );
   alert( "Drag stopped!\n\nOffset: (" + offsetXPos + ", " + offsetYPos + ")\n");
 }
+
+
+var positions = JSON.parse(localStorage.positions || "{}");
+
+$(function () {
+    var d = $("#iconn").attr("id", function (i) {
+        return "iconn_" + i
+    })
+    $.each(positions, function (id, pos) {
+        $("#" + id).css(pos)
+    })
+
+    d.draggable({
+        containment: ".jumbotron",
+        scroll: false,
+        stop: function (event, ui) {
+            positions[this.id] = ui.position
+            localStorage.positions = JSON.stringify(positions)
+        }
+    });
+});

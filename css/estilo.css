@@ -25,6 +25,9 @@
 }
 
 
+ .dragImg {
+       resize: both;
+    }
 
  /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -44,7 +47,6 @@
     padding: 10px;
     border: none;
     cursor: pointer;
- 
 }
 
 textarea {
@@ -74,6 +76,4 @@ textarea {
 
 #elements-container {
       width: 200px;
-    display:inline;
-  
 }
