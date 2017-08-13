@@ -35,9 +35,14 @@
     </div>
   </div>
 </nav>
-<br>
-
-<div id="Content">
+<br> 
+    
+<div class="jumbotron">    
+<div id="content" style="height: 400px;">
+</div>
+</div>
+    
+    <div id="contentoptions">
 <button id="add-text" class="btn-primary">Insertar texto</button>
 <!--<button id="add-square" class="btn-primary">Insertar proceso</button>
 <button id="add-rombo" class="btn-primary">Insertar condición</button>
@@ -46,28 +51,16 @@
 </div> 
     
     <br>
-    <div id="elements-container">
-    </div>
-    <br>
     
     <div id="p-editor">
         <h2>P Editor</h2>
         <textarea rows="10" cols="50"></textarea>
         <br />
-        <button class="save" type="button">Save</button>
-        <button class="done" type="button">Done editing</button>
-        <button class="delete" type="button">Delete</button>
+        <button class="save" type="button">Guardar</button>
+        <button class="done" type="button">Cerrar</button>
+        <button class="delete" type="button">Borrar</button>
     </div>
     
-    
-<div class="jumbotron">    
-<div id="content" style="height: 400px;">
-</div>
-</div>
-    
-    
-    
-   
     
     <div class="container-fluid bg-3 text-center"> 
         <h3>Drag And Drop</h3><br>
@@ -93,11 +86,14 @@
        <div class="col-sm-3">
         <div class="dragImg"><img id="iconn2" class="img" src="../images/flujo/left.png"></div>
                 </div>
+       <div class="col-sm-3">
+            <div id="elements-container"></div>
+            </div>
               </div>
-        
+       
         </div>
 
-    
+     
 <!--<br style="clear:both">
 <div id="storage">
 	<div class="draggable">
