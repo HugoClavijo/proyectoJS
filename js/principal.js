@@ -1,5 +1,6 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
+
 $( init );
  
 function init() {
@@ -60,7 +61,7 @@ $(".jumbotron").droppable({
 $(".item-"+counts[0]).dblclick(function() {
 $(this).remove();
 });     
-	make_draggable($(".item-"+counts[0])); 
+	make_draggable($(".item-"+counts[0]));
       //$(".imgSize-"+counts[0]).resizable(resizeOpts);     
        }
 
@@ -78,12 +79,70 @@ function make_draggable(elements)
 		//stop:function(e,ui){
 		//}
 	});
-}  
+} 
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------ 
+    
+    $('#add-text').on('click', function () {
+     var id = $('#elements-container').children().length + 1;
+    $('#elements-container').append(' <p id="'+id+'" class="editable">This is a new p element</p>');
+        
+        $('p.editable').dblclick('click', function() {
+    editEl = $(this);
+    $(editEl).addClass('editing');
+    $('#p-editor').show();
+    $('#p-editor textarea').val($(editEl).html());
+        });
+        
+        // When they click the "Done Editing" button, close the editor
+        $('.done').click(function() {
+        $('#p-editor, #div-editor').hide();
+        $(editEl).removeClass('editing');
+        });
+
+        // Delete the clicked div element
+        $('.delete').click(function() {
+        $(editEl).remove();
+        $('#p-editor, #div-editor').hide();
+        });
+
+// Update the clicked div element when they click the "Save" button
+        $('.save').click(function() {
+        $(editEl).html($(this).parent().find('textarea').val());
+        });
+        
+        $('p.editable').draggable({
+                        appendTo: '.jumbotron',
+                        containment: '.jumbotron',
+                        revert: "invalid",
+                         stop: handleDragStop,
+                        });
+        
+  });
+    
+ 
+//------------------------------------------------------------------------------------------------------------------------------------------------------ 
+    
+     /*$('#add-square').on('click', function () {
+         var id = $('#content').children().length + 1;
+     $('#content').append('<div id="'+id+'" class="dragImg"><img id="iconn" class="img" src="../images/flujo/rectangulo.png"></div>');
+         
+          $('.dragImg').draggable({
+                        appendTo: '.jumbotron',
+                        containment: '.jumbotron',
+                         stop: handleDragStop,
+                        });
+         
+         $('.dragImg').dblclick(function() {
+             $(this).remove();
+         }); 
+         
+    });*/
+    
     
 //------------------------------------------------------------------------------------------------------------------------------------------------------ 
     
 }
-
 
 function handleDragStop( event, ui ) {
   var offsetXPos = parseInt( ui.offset.left );
