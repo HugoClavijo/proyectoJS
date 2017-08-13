@@ -13,8 +13,8 @@ function login(){
     if (loggedUser != null){
         //toogleUserInfo();
         //menuMaxHeight();
-        //$('.loggedUserPicture').attr('src', loggedUser.imagen);
-        //$('.loggedUserName').text(loggedUser.user);
+        $('.loggedUserPicture').attr('src', loggedUser.imagen);
+        $('.loggedUserName').text(loggedUser.user);
         $('input').val('');
         window.location.href = "pages/home.html";       
     }else{
