@@ -90,15 +90,6 @@ var html = element.outerHTML;
 var data = { html: html }; 
 var json = JSON.stringify(data);
     console.log(json); // shows json object
-     
-var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
- var a = document.createElement('a');
-a.href = 'data:' + data;
-a.download = 'data.json';
-a.innerHTML = 'Download';
-
-var container = document.getElementById('container');
-container.appendChild(a);
   });
     
 //------------------------------------------------------------------------------------------------------------------------------------------------------ 
@@ -110,7 +101,7 @@ container.appendChild(a);
     
     $('#add-text').on('click', function () {
      var id = $('#elements-container').children().length + 1;
-    $('#elements-container').append('<p id="'+id+'" class="editable">This is a new p element</p>');
+    $('#elements-container').append('<p id="'+id+'" class="editable">Doble click para editar</p>');
         
         $('p.editable').dblclick('click', function() {
     editEl = $(this);
