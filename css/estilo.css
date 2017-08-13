@@ -52,7 +52,7 @@
 
 .editables {
     background-color: transparent;
-    padding: 10px;
+    padding: 2px;
     border: none;
     cursor: pointer;
 }
@@ -94,6 +94,7 @@ textarea {
      -webkit-border-radius: 50%;
      border-radius: 50%;
      background: #5cb85c;
+     text-align:center;
 }
 
 .rectangulo {
@@ -101,6 +102,7 @@ textarea {
      height: 80px; 
      border: 3px solid #555;
      background: yellow;
+    text-align:center;
 }
 
 .rombo {
@@ -113,6 +115,7 @@ textarea {
      -ms-transform: rotate(45deg);
      -o-transform: rotate(45deg);
      transform: rotate(45deg);
+    text-align:center;
 }
 
 .paralelogramo {
@@ -125,4 +128,30 @@ textarea {
      -ms-transform: skew(20deg);
      -o-transform: skew(20deg);
      transform: skew(20deg);
+    text-align:center;
+}
+
+
+.arrow {
+    width:120px;
+    margin:50px auto;
+}
+
+.line {
+    margin-top:14px;
+    width:90px;
+    background:blue;
+    height:20px;
+    float:left;
+}
+
+.arrow{
+    font-size: 100px;
+}
+
+.line {
+  border: 0;
+  background-color: #000;
+  height: 3px;
+  cursor: pointer;
 }

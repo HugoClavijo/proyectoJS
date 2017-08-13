@@ -169,7 +169,7 @@ $('#add-en').on('click', function () {
       
     $('#add-up').on('click', function () {
      var id = $('#elements-container').children().length + 1;
-   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editables iconn"><img id="iconn1" class="img" src="../images/flujo/up.png"></div></div>');
+   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editables line"></div></div>');
         
         $('#'+id).draggable({
                         appendTo: '.jumbotron',
