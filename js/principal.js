@@ -85,9 +85,9 @@ function make_draggable(elements)
     
     $('#add-text').on('click', function () {
      var id = $('#elements-container').children().length + 1;
-    $('#elements-container').append('<div id="'+id+'" class="editable">Doble click para editar el texto</div>');
+    $('#elements-container').append('<p id="'+id+'" class="editable">This is a new p element</p>');
         
-        $('div.editable').dblclick('click', function() {
+        $('p.editable').dblclick('click', function() {
     editEl = $(this);
     $(editEl).addClass('editing');
     $('#p-editor').show();
@@ -111,7 +111,7 @@ function make_draggable(elements)
         $(editEl).html($(this).parent().find('textarea').val());
         });
         
-        $('div.editable').draggable({
+        $('p.editable').draggable({
                         appendTo: '.jumbotron',
                         containment: '.jumbotron',
                          stop: handleDragStop,
