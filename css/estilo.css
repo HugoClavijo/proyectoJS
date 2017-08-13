@@ -24,6 +24,10 @@
     border-radius: 0 1em 1em 1em;
 }
 
+.dragImg {
+    float: left;
+}
+
  /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -37,3 +41,41 @@
     }
 
 
+.editable {
+    background-color: #EAEAEA;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+       display:inline;
+}
+
+textarea {
+    padding: 5px;
+}
+
+.editable:hover {
+    border: 2px dashed red;
+}
+
+
+#p-editor, #div-editor {
+    background-color: green;
+    margin: 20px;
+    padding: 10px;
+    display: none;
+}
+
+#div-editor {
+    background-color: yellow;
+}
+
+.editing {
+    background-color: red;
+}
+
+
+#elements-container {
+      width: 200px;
+    display:inline;
+  
+}
