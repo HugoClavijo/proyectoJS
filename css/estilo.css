@@ -49,6 +49,14 @@
     cursor: pointer;
 }
 
+
+.editables {
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
 textarea {
     padding: 5px;
 }

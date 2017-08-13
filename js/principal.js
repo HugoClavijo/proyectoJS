@@ -39,7 +39,7 @@ function init() {
                         containment: '.jumbotron',
                          stop: handleDragStop,
                         });
-        
+         $('#'+id).resizable();  
   });
     
  
@@ -79,7 +79,7 @@ function init() {
                         containment: '.jumbotron',
                          stop: handleDragStop,
                         });
-        
+         $('#'+id).resizable();  
   });
     
     
@@ -120,7 +120,7 @@ $('#add-pro').on('click', function () {
                         containment: '.jumbotron',
                          stop: handleDragStop,
                         });
-        
+         $('#'+id).resizable();  
   });
     
     
@@ -161,7 +161,7 @@ $('#add-en').on('click', function () {
                         containment: '.jumbotron',
                          stop: handleDragStop,
                         });
-        
+        $('#'+id).resizable();  
   });
     
     
@@ -169,78 +169,36 @@ $('#add-en').on('click', function () {
       
     $('#add-up').on('click', function () {
      var id = $('#elements-container').children().length + 1;
-   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editable iconn"><img id="iconn1" class="img" src="../images/flujo/up.png"></div></div>');
+   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editables iconn"><img id="iconn1" class="img" src="../images/flujo/up.png"></div></div>');
         
-        $('div.editable').draggable({
+        $('#'+id).draggable({
                         appendTo: '.jumbotron',
                         containment: '.jumbotron',
                          stop: handleDragStop,
                         });
         
-         $('div.editable').dblclick(function() {
-        $(this).remove();
+         //$('div.editable').dblclick(function() {
+        //$(this).remove();
+    //});
+        
+        var rotation = 0;
+
+        jQuery.fn.rotate = function(degrees) {
+    $('#'+id).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
+                 '-moz-transform' : 'rotate('+ degrees +'deg)',
+                 '-ms-transform' : 'rotate('+ degrees +'deg)',
+                 'transform' : 'rotate('+ degrees +'deg)'});
+    };
+
+        $('#'+id).click(function() {
+    rotation += 5;
+    $(this).rotate(rotation);
     });
+      
+      $('#'+id).resizable();  
         
   });
     
-    
-//------------------------------------------------------------------------------------------------------------------------------------------------------ 
-    
-    
- $('#add-down').on('click', function () {
-     var id = $('#elements-container').children().length + 1;
-   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editable iconn"><img id="iconn1" class="img" src="../images/flujo/down.png"></div></div>');
-        
-        $('div.editable').draggable({
-                        appendTo: '.jumbotron',
-                        containment: '.jumbotron',
-                         stop: handleDragStop,
-                        });
-     
-      $('div.editable').dblclick(function() {
-        $(this).remove();
-    });
-        
-  });
-    
-    
-//------------------------------------------------------------------------------------------------------------------------------------------------------    
-    
-    
-$('#add-right').on('click', function () {
-     var id = $('#elements-container').children().length + 1;
-   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editable iconn"><img id="iconn1" class="img" src="../images/flujo/right.png"></div></div>');
-        
-        $('div.editable').draggable({
-                        appendTo: '.jumbotron',
-                        containment: '.jumbotron',
-                         stop: handleDragStop,
-                        });
-     $('div.editable').dblclick(function() {
-        $(this).remove();
-    });
-        
-  });
-    
-    
-//------------------------------------------------------------------------------------------------------------------------------------------------------    
-    
-    
-$('#add-left').on('click', function () {
-     var id = $('#elements-container').children().length + 1;
-   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editable iconn"><img id="iconn1" class="img" src="../images/flujo/left.png"></div></div>');
-        
-        $('div.editable').draggable({
-                        appendTo: '.jumbotron',
-                        containment: '.jumbotron',
-                         stop: handleDragStop,
-                        });
-    
-    $('div.editable').dblclick(function() {
-        $(this).remove();
-    });
-        
-  });
     
     
 //------------------------------------------------------------------------------------------------------------------------------------------------------    
@@ -269,4 +227,8 @@ function handleDragStop( event, ui ) {
   var offsetYPos = parseInt( ui.offset.top );
   alert( "Drag stopped!\n\nOffset: (" + offsetXPos + ", " + offsetYPos + ")\n");
 }
+
+
+
+
 
