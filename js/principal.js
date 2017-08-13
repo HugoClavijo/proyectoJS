@@ -83,6 +83,25 @@ function make_draggable(elements)
 	});
 } 
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------ 
+ $("#download").click(function() {
+var element = document.getElementById('iconn');
+var html = element.outerHTML;       
+var data = { html: html }; 
+var json = JSON.stringify(data);
+    console.log(json); // shows json object
+     
+var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
+ var a = document.createElement('a');
+a.href = 'data:' + data;
+a.download = 'data.json';
+a.innerHTML = 'Download';
+
+var container = document.getElementById('container');
+container.appendChild(a);
+  });
+    
+//------------------------------------------------------------------------------------------------------------------------------------------------------ 
   $("#clear").click(function() {
     window.localStorage.clear();
     window.location.reload();
@@ -156,23 +175,3 @@ function handleDragStop( event, ui ) {
   alert( "Drag stopped!\n\nOffset: (" + offsetXPos + ", " + offsetYPos + ")\n");
 }
 
-
-var positions = JSON.parse(localStorage.positions || "{}");
-
-$(function () {
-    var d = $("#iconn").attr("id", function (i) {
-        return "iconn_" + i
-    })
-    $.each(positions, function (id, pos) {
-        $("#" + id).css(pos)
-    })
-
-    d.draggable({
-        containment: ".jumbotron",
-        scroll: false,
-        stop: function (event, ui) {
-            positions[this.id] = ui.position
-            localStorage.positions = JSON.stringify(positions)
-        }
-    });
-});
