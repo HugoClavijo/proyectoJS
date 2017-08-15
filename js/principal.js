@@ -1,4 +1,9 @@
 
+
+
+
+
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $( init );
@@ -202,23 +207,83 @@ $('#add-en').on('click', function () {
     
     
 //------------------------------------------------------------------------------------------------------------------------------------------------------    
-    
+var arrayElement = ['{"data":{']; 
 $("#download").click(function() {
 var id = $('#elements-container').children().length 
-var element = document.getElementById(id);
-var html = element.outerHTML;       
-var data = { html: html }; 
-var json = JSON.stringify(data);
-    console.log(json); // shows json object
+// var element = document.getElementById(id);
+// var html = element.outerHTML;       
+// var data = { html: html }; 
+// var json = JSON.stringify(data);
+    // console.log(json); // shows json object
+    
+    
+  arrayElement = arrayElement+'"usuario":"juancarlos",';
+  arrayElement = arrayElement+'"elemento":[';
+    
+    for (var i = 1; i < id+1; i++){
+    // alert("hola"+i);
+    // console.log(document.getElementById(i));
+    
+    if(i>1 && i< id+1){
+        arrayElement=arrayElement+',';
+    }
+     
+    var element = document.getElementById(i);
+    var html = element.outerHTML;       
+    var data = { html: html }; 
+    var json = JSON.stringify(data);
+    arrayElement=arrayElement+json;
+   
+    //  console.log(document.getElementById(i));
+    }
+    arrayElement = arrayElement+']';
+    arrayElement = arrayElement+'}}';
+     console.log(arrayElement);
+    
+    // console.log(document.getElementById(1));
+    // console.log(document.getElementById(2));
+    // console.log(document.getElementById(3));
+    // console.log(document.getElementById(4));
   });
     
 //------------------------------------------------------------------------------------------------------------------------------------------------------ 
-  $("#clear").click(function() {
+  $("#guardar").click(function() {
+    console.log("guardar");
+    localStorage.setItem('miDiagrama', JSON.stringify(arrayElement));
+    var obj = JSON.parse(localStorage.getItem('miDiagrama'));
+    console.log(obj);
+  });
+ 
+  //------------------------------------------------------------------------------------------------------------------------------------------------------ 
+  $("#mostrarDiagrama").click(function() {
+   
+   var obj = JSON.parse(localStorage.getItem('miDiagrama'));
+   console.log(obj);
+    console.log('mostrar diagrama');
+    //  $(".jumbotron").append("<h1>Aqui</h1>");
+    //  $(".jumbotron").append(obj);   <div class="col-md-1">
+    var obj2 =JSON.parse(obj);
+    console.log('===>'+obj2.data.elemento[0].html);
+    // $("#elements-container").append(obj2);
+    var id = obj2.data.elemento.length;
+    
+        for (var i = 0; i < id; i++){
+            console.log('===>'+obj2.data.elemento[i].html);
+            // $("#elements-container").append('<div class="col-md-1">');
+            $("#elements-container").append('<div class="col-md-1">'+obj2.data.elemento[i].html+'</div>');
+            // $("#elements-container").append('</div>');
+        }
+     
+  });
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------ 
+    $("#clear").click(function() {
     window.localStorage.clear();
     window.location.reload();
   });
-//------------------------------------------------------------------------------------------------------------------------------------------------------ 
-       
+  
+  //------------------------------------------------------------------------------------------------------------------------------------------------------ 
+ 
 }
 
 
@@ -229,6 +294,12 @@ function handleDragStop( event, ui ) {
 }
 
 
+function exportJson(el) {
 
+    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(localStorage.getItem('miDiagrama')));
+    // what to return in order to show download window?
 
-
+    el.setAttribute("href", "data:"+data);
+    el.setAttribute("download", "data.json");
+    
+}

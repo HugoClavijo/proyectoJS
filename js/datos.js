@@ -7,6 +7,13 @@ class Usuario {
         this.imagen = obj.imagen;
     }
 }
+class Diagrama {
+    constructor (obj){
+        this.usuario = obj.usuario;
+        this.posx = obj.user;
+        this.posy = obj.pass;
+    }
+}
 
 
 var json = {"usuarios":[{"id":1,"user":"admin1","pass":"1234","imagen":"images/users/1.png"},{"id":2,"user":"hugo","pass":"batman","imagen":"images/users/2.png"},{"id":3,"user":"juancarlos","pass":"spiderman","imagen":"images/users/3.png"}]};

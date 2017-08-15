@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="../css/estilo.css">  
   <script src="../js/libs/jquery.min.js"></script>
   <script src="../js/libs/bootstrap.min.js"></script>
-         <script src="js/main.js"></script>
+         <!--<script src="js/main.js"></script>-->
+         <script src="../js/datos.js"></script>
+             <script src="../js/principal.js"></script>
+
 </head>
 <body>
 
@@ -26,7 +29,7 @@
       <ul class="nav navbar-nav">
         <li><a href="home.html">Home</a></li>
         <li><a href="create.html">Crear diagrama</a></li>
-        <li class="active"><a href="diagrams.html">Mis diagramas</a></li>
+        <li class="active"><a href="diagrams.html">Exportar diagrama</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -35,13 +38,37 @@
     </div>
   </div>
 </nav>
-
-<div class="jumbotron">
-  <div class="container text-center">
-      <img src='../images/icon.png'>
-      <h1>Proyecto</h1>
-    <p>Carrera, Clavijo, Cordova...</p>
+ <div id="contentoptions" class="container-fluid">
+   <div class="form-group">
+    <label for="usr">Nombre del usuario:</label>
+    <input type="text" class="form-control" id="nombrediagrama">
+   </div>
   </div>
+  
+  <div id="container ">
+    <!--  <img src='../images/icon.png'>-->
+    <!--  <h1>Proyecto</h1>-->
+    <!--<p>Carrera, Clavijo, Cordova...</p>-->
+  </div>
+<div class="jumbotron">    
+  <div id="content" style="height:600px;">
+  </div>
+</div>
+ <button id="mostrarDiagrama" class="btn-default">Mostrar</button>
+<!--<button id="exportar" class="btn-default">exportar</button>-->
+<a id="exportJSON" onclick="exportJson(this);" class="btn"><i class="icon-download"></i> export json</a>
+
+
+  <!--<div id="container ">-->
+    <!--  <img src='../images/icon.png'>-->
+    <!--  <h1>Proyecto</h1>-->
+    <!--<p>Carrera, Clavijo, Cordova...</p>-->
+  <!--</div>-->
+  
+    <br>
+    <div class="container-fluid"> 
+    <div id="elements-container" class="row"></div>
+    </div>  
 </div>
 </body>
 </html>
