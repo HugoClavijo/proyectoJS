@@ -7,11 +7,12 @@ class Usuario {
         this.imagen = obj.imagen;
     }
 }
-class Diagrama {
+class Elemento {
     constructor (obj){
         this.usuario = obj.usuario;
         this.posx = obj.user;
         this.posy = obj.pass;
+        this.div = obj.div;
     }
 }
 

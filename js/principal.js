@@ -1,9 +1,4 @@
 
-
-
-
-
-
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $( init );
@@ -171,8 +166,8 @@ $('#add-en').on('click', function () {
     
     
 //------------------------------------------------------------------------------------------------------------------------------------------------------     
-      
-    $('#add-up').on('click', function () {
+
+ $('#add-up').on('click', function () {
      var id = $('#elements-container').children().length + 1;
    $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editables line"></div></div>');
         
@@ -212,12 +207,15 @@ $('#add-en').on('click', function () {
     $(this).rotate(rotation);
     });
       
-      //$('#'+id).resizable();  
-        $('#'+id).resizable({
+      //$('#'+id).resizable(); 
+      
+       $("#"+id).resizable({
     handles: 's',
     stop: function(event, ui) {
         $(this).css("width", '');
    }
+   
+    });
         
   });
     
@@ -265,12 +263,15 @@ $('#add-2').on('click', function () {
     $(this).rotate(rotation);
     });
       
-      //$('#'+id).resizable();  
-    $('#'+id).resizable({
+      //$('#'+id).resizable(); 
+      
+        $("#"+id).resizable({
     handles: 's',
     stop: function(event, ui) {
         $(this).css("width", '');
    }
+   
+    });
         
   });
     
@@ -317,13 +318,15 @@ $('#add-3').on('click', function () {
     $(this).rotate(rotation);
     });
       
-      //$('#'+id).resizable(); 
-    $('#'+id).resizable({
+      //$('#'+id).resizable();  
+         $("#"+id).resizable({
     handles: 's',
     stop: function(event, ui) {
         $(this).css("width", '');
    }
-        
+   
+    });
+    
   });
     
     
@@ -370,32 +373,33 @@ $('#add-4').on('click', function () {
     $(this).rotate(rotation);
     });
       
-      //$('#'+id).resizable(); 
-    $('#'+id).resizable({
+      //$('#'+id).resizable();  
+         $("#"+id).resizable({
     handles: 's',
     stop: function(event, ui) {
         $(this).css("width", '');
    }
-        
-});
-        
+   
+    });
+    
   });
     
     
-    
-    
 //------------------------------------------------------------------------------------------------------------------------------------------------------    
+        
+    
+     
 var arrayElement = ['{"data":{']; 
-$("#download").click(function() {
-var id = $('#elements-container').children().length 
-// var element = document.getElementById(id);
-// var html = element.outerHTML;       
-// var data = { html: html }; 
-// var json = JSON.stringify(data);
+  $("#guardar").click(function() {
+    var id = $('#elements-container').children().length 
+    // var element = document.getElementById(id);
+    // var html = element.outerHTML;       
+    // var data = { html: html }; 
+    // var json = JSON.stringify(data);
     // console.log(json); // shows json object
     
     
-  arrayElement = arrayElement+'"usuario":"juancarlos",';
+  
   arrayElement = arrayElement+'"elemento":[';
     
     for (var i = 1; i < id+1; i++){
@@ -422,21 +426,27 @@ var id = $('#elements-container').children().length
     // console.log(document.getElementById(2));
     // console.log(document.getElementById(3));
     // console.log(document.getElementById(4));
-  });
-    
-//------------------------------------------------------------------------------------------------------------------------------------------------------ 
-  $("#guardar").click(function() {
     console.log("guardar");
     localStorage.setItem('miDiagrama', JSON.stringify(arrayElement));
     var obj = JSON.parse(localStorage.getItem('miDiagrama'));
     console.log(obj);
+    
   });
+ 
+ 
+ 
+ 
+ 
  
   //------------------------------------------------------------------------------------------------------------------------------------------------------ 
   $("#mostrarDiagrama").click(function() {
+   var nombrediagrama = $("#nombreusuario").val();
+   console.log(nombrediagrama);
    
    var obj = JSON.parse(localStorage.getItem('miDiagrama'));
    console.log(obj);
+   console.log(obj.data);
+   
     console.log('mostrar diagrama');
     //  $(".jumbotron").append("<h1>Aqui</h1>");
     //  $(".jumbotron").append(obj);   <div class="col-md-1">
@@ -454,6 +464,10 @@ var id = $('#elements-container').children().length
      
   });
 
+
+
+
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------ 
     $("#clear").click(function() {
     window.localStorage.clear();
@@ -461,7 +475,14 @@ var id = $('#elements-container').children().length
   });
   
   //------------------------------------------------------------------------------------------------------------------------------------------------------ 
- 
+  $("#exportar").click(function() {
+      console.log("hola");
+        var bla = $('#nombrediagrama').val();
+        console.log(bla);
+           var obj = JSON.parse(localStorage.getItem('miDiagrama'));
+   console.log(obj);
+   
+  }); 
 }
 
 
@@ -473,6 +494,7 @@ function handleDragStop( event, ui ) {
 
 
 function exportJson(el) {
+
 
     var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(localStorage.getItem('miDiagrama')));
     // what to return in order to show download window?
