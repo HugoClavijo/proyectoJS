@@ -66,7 +66,7 @@ textarea {
 }
 
 
-#p-editor, #div-editor {
+#p-editor, #c-editor {
     background-color: white;
     margin: 20px;
     padding: 10px;
@@ -132,26 +132,96 @@ textarea {
 }
 
 
-.arrow {
-    width:120px;
-    margin:50px auto;
-}
-
 .line {
-    margin-top:14px;
-    width:90px;
-    background:blue;
-    height:20px;
-    float:left;
+  width: 5px;
+  height: 220px;
+  background-color: red;
+  /* Rotate div */
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  -webkit-transform: rotate(30deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+  transform-origin: bottom left;
+  position: relative;
 }
 
-.arrow{
-    font-size: 100px;
+.line2 {
+  width: 5px;
+  height: 220px;
+  background-color: red;
+  /* Rotate div */
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  -webkit-transform: rotate(30deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+  transform-origin: bottom left;
+  position: relative;
 }
 
-.line {
-  border: 0;
-  background-color: #000;
-  height: 3px;
-  cursor: pointer;
+.line2:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-style: solid;
+  transform: translate(-40%, -50%);
+  border-width: 0 10px 20px 10px;
+  border-color: transparent transparent red transparent;
 }
+
+.line3 {
+	width: 5px;
+  height: 220px;
+  background-color: red;
+  /* Rotate div */
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  -webkit-transform: rotate(30deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+  transform-origin: bottom left;
+  position: relative;
+}
+
+.line3:after {
+	content: "";
+    position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: red;
+	border-radius: 10px;
+	top: -6px;
+     left: -2px;
+}
+
+.line4 {
+	width: 5px;
+  height: 220px;
+  background-color: red;
+  /* Rotate div */
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  -webkit-transform: rotate(30deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+  transform-origin: bottom left;
+  position: relative;
+}
+
+.line4:after {
+	content: "";
+    position: absolute;
+	background-color: red;
+	width: 18px;
+    height: 18px;
+    -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+	top: -6px;
+    left: -7px;
+}
+

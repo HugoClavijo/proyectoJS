@@ -182,9 +182,21 @@ $('#add-en').on('click', function () {
                          stop: handleDragStop,
                         });
         
-         //$('div.editable').dblclick(function() {
-        //$(this).remove();
-    //});
+        $('#'+id).dblclick('click', function() {
+        editEl = $(this);
+        $('#c-editor').show();
+        });
+        
+// When they click the "Done Editing" button, close the editor
+        $('.done').click(function() {
+        $('#p-editor, #c-editor').hide();
+        });
+
+        // Delete the clicked div element
+        $('.delete').click(function() {
+         $(editEl).remove();   
+        $('#p-editor, #c-editor').hide();
+        });
         
         var rotation = 0;
 
@@ -195,14 +207,180 @@ $('#add-en').on('click', function () {
                  'transform' : 'rotate('+ degrees +'deg)'});
     };
 
-        $('#'+id).click(function() {
+        $('.rotar').click(function() {
     rotation += 5;
     $(this).rotate(rotation);
     });
       
-      $('#'+id).resizable();  
+      //$('#'+id).resizable();  
+        $('#'+id).resizable({
+    handles: 's',
+    stop: function(event, ui) {
+        $(this).css("width", '');
+   }
         
   });
+    
+    
+    
+//------------------------------------------------------------------------------------------------------------------------------------------------------  
+    
+$('#add-2').on('click', function () {
+     var id = $('#elements-container').children().length + 1;
+   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editables line2"></div></div>');
+        
+        $('#'+id).draggable({
+                        appendTo: '.jumbotron',
+                        containment: '.jumbotron',
+                         stop: handleDragStop,
+                        });
+        
+        $('#'+id).dblclick('click', function() {
+        editEl = $(this);    
+        $('#c-editor').show();
+        });
+        
+// When they click the "Done Editing" button, close the editor
+        $('.done').click(function() {
+        $('#p-editor, #c-editor').hide();
+        });
+
+        // Delete the clicked div element
+        $('.delete').click(function() {
+        $(editEl).remove();   
+        $('#p-editor, #c-editor').hide();
+        });
+        
+        var rotation = 0;
+
+        jQuery.fn.rotate = function(degrees) {
+    $('#'+id).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
+                 '-moz-transform' : 'rotate('+ degrees +'deg)',
+                 '-ms-transform' : 'rotate('+ degrees +'deg)',
+                 'transform' : 'rotate('+ degrees +'deg)'});
+    };
+
+        $('.rotar').click(function() {
+    rotation += 5;
+    $(this).rotate(rotation);
+    });
+      
+      //$('#'+id).resizable();  
+    $('#'+id).resizable({
+    handles: 's',
+    stop: function(event, ui) {
+        $(this).css("width", '');
+   }
+        
+  });
+    
+    
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+$('#add-3').on('click', function () {
+     var id = $('#elements-container').children().length + 1;
+   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editables line3"></div></div>');
+        
+        $('#'+id).draggable({
+                        appendTo: '.jumbotron',
+                        containment: '.jumbotron',
+                         stop: handleDragStop,
+                        });
+        
+        $('#'+id).dblclick('click', function() {
+        editEl = $(this);    
+        $('#c-editor').show();
+        });
+        
+// When they click the "Done Editing" button, close the editor
+        $('.done').click(function() {
+        $('#p-editor, #c-editor').hide();
+        });
+
+        // Delete the clicked div element
+        $('.delete').click(function() {
+        $(editEl).remove();   
+        $('#p-editor, #c-editor').hide();
+        });
+        
+        var rotation = 0;
+
+        jQuery.fn.rotate = function(degrees) {
+    $('#'+id).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
+                 '-moz-transform' : 'rotate('+ degrees +'deg)',
+                 '-ms-transform' : 'rotate('+ degrees +'deg)',
+                 'transform' : 'rotate('+ degrees +'deg)'});
+    };
+
+        $('.rotar').click(function() {
+    rotation += 5;
+    $(this).rotate(rotation);
+    });
+      
+      //$('#'+id).resizable(); 
+    $('#'+id).resizable({
+    handles: 's',
+    stop: function(event, ui) {
+        $(this).css("width", '');
+   }
+        
+  });
+    
+    
+//------------------------------------------------------------------------------------------------------------------------------------------------------    
+    
+    
+$('#add-4').on('click', function () {
+     var id = $('#elements-container').children().length + 1;
+   $('#elements-container').append('<div class="col-md-1"><div id="'+id+'" class="editables line4"></div></div>');
+        
+        $('#'+id).draggable({
+                        appendTo: '.jumbotron',
+                        containment: '.jumbotron',
+                         stop: handleDragStop,
+                        });
+        
+        $('#'+id).dblclick('click', function() {
+        editEl = $(this);    
+        $('#c-editor').show();
+        });
+        
+// When they click the "Done Editing" button, close the editor
+        $('.done').click(function() {
+        $('#p-editor, #c-editor').hide();
+        });
+
+        // Delete the clicked div element
+        $('.delete').click(function() {
+        $(editEl).remove();   
+        $('#p-editor, #c-editor').hide();
+        });
+        
+        var rotation = 0;
+
+        jQuery.fn.rotate = function(degrees) {
+    $('#'+id).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
+                 '-moz-transform' : 'rotate('+ degrees +'deg)',
+                 '-ms-transform' : 'rotate('+ degrees +'deg)',
+                 'transform' : 'rotate('+ degrees +'deg)'});
+    };
+
+        $('.rotar').click(function() {
+    rotation += 5;
+    $(this).rotate(rotation);
+    });
+      
+      //$('#'+id).resizable(); 
+    $('#'+id).resizable({
+    handles: 's',
+    stop: function(event, ui) {
+        $(this).css("width", '');
+   }
+        
+});
+        
+  });
+    
     
     
     
