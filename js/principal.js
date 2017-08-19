@@ -1,4 +1,3 @@
-
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $( init );
@@ -16,6 +15,13 @@ function init() {
     $('#p-editor textarea').val($(editEl).html());
         });
         
+        
+        // When they click the "Done Editing" button, close the editor
+        $('.color').click(function() {
+        var colors = ["#537de0","#53e0b1","#990099"];                
+        var rand = Math.floor(Math.random()*colors.length);           
+         $(editEl).css("background-color", colors[rand]);
+        });
         
         // When they click the "Done Editing" button, close the editor
         $('.done').click(function() {
@@ -56,6 +62,12 @@ function init() {
     $('#p-editor textarea').val($(editEl).html());
         });
         
+       // When they click the "Done Editing" button, close the editor
+        $('.color').click(function() {
+        var colors = ["#537de0","#53e0b1","#990099"];                
+        var rand = Math.floor(Math.random()*colors.length);           
+         $(editEl).css("background-color", colors[rand]);
+        });
         
         // When they click the "Done Editing" button, close the editor
         $('.done').click(function() {
@@ -99,6 +111,13 @@ $('#add-pro').on('click', function () {
         
         
         // When they click the "Done Editing" button, close the editor
+        $('.color').click(function() {
+        var colors = ["#537de0","#53e0b1","#990099"];                
+        var rand = Math.floor(Math.random()*colors.length);           
+         $(editEl).css("background-color", colors[rand]);
+        });
+        
+        // When they click the "Done Editing" button, close the editor
         $('.done').click(function() {
         $('#p-editor, #div-editor').hide();
         $(editEl).removeClass('editing');
@@ -138,6 +157,12 @@ $('#add-en').on('click', function () {
     $('#p-editor textarea').val($(editEl).html());
         });
         
+          // When they click the "Done Editing" button, close the editor
+        $('.color').click(function() {
+        var colors = ["#537de0","#53e0b1","#990099"];                
+        var rand = Math.floor(Math.random()*colors.length);           
+         $(editEl).css("background-color", colors[rand]);
+        });
         
         // When they click the "Done Editing" button, close the editor
         $('.done').click(function() {
@@ -161,7 +186,8 @@ $('#add-en').on('click', function () {
                         containment: '.jumbotron',
                          stop: handleDragStop,
                         });
-        $('#'+id).resizable();  
+        
+        $('div.editable').resizable();  
   });
     
     
@@ -436,16 +462,20 @@ var arrayElement = ['{"data":{'];
  
  
  
- 
- 
+   var nombrediagrama; 
+   var versiondiagrama; 
   //------------------------------------------------------------------------------------------------------------------------------------------------------ 
   $("#mostrarDiagrama").click(function() {
-   var nombrediagrama = $("#nombreusuario").val();
-   console.log(nombrediagrama);
+//   nombrediagrama = $("#nombreusuario").val();
+//   console.log(nombrediagrama);
+   
+//   versiondiagrama = $("#version").val();
+//   console.log(versiondiagrama);
+   
    
    var obj = JSON.parse(localStorage.getItem('miDiagrama'));
    console.log(obj);
-   console.log(obj.data);
+   console.log(obj.elemento);
    
     console.log('mostrar diagrama');
     //  $(".jumbotron").append("<h1>Aqui</h1>");
@@ -476,12 +506,52 @@ var arrayElement = ['{"data":{'];
   
   //------------------------------------------------------------------------------------------------------------------------------------------------------ 
   $("#exportar").click(function() {
-      console.log("hola");
-        var bla = $('#nombrediagrama').val();
-        console.log(bla);
-           var obj = JSON.parse(localStorage.getItem('miDiagrama'));
-   console.log(obj);
+    var id = $('#elements-container').children().length 
+var arrayElement = ['{"data":{']; 
+   nombrediagrama = $("#nombreusuario").val();
+   console.log(nombrediagrama);
    
+   versiondiagrama = $("#version").val();
+   console.log(versiondiagrama);
+   
+  arrayElement = arrayElement+'"usuario":"'+nombrediagrama+'",';
+  arrayElement = arrayElement+'"version":"'+versiondiagrama+'",';
+  arrayElement = arrayElement+'"elemento":[';
+    
+    for (var i = 1; i < id+1; i++){
+
+    if(i>1 && i< id+1){
+        arrayElement=arrayElement+',';
+    }
+     
+    var element = document.getElementById(i);
+    var html = element.outerHTML;       
+    var data = { html: html }; 
+    var json = JSON.stringify(data);
+    arrayElement=arrayElement+json;
+   
+    //  console.log(document.getElementById(i));
+    }
+    arrayElement = arrayElement+']';
+    arrayElement = arrayElement+'}}';
+     console.log(arrayElement);
+    
+    // console.log(document.getElementById(1));
+    // console.log(document.getElementById(2));
+    // console.log(document.getElementById(3));
+    // console.log(document.getElementById(4));
+    console.log("guardar");
+    localStorage.setItem('miDiagrama', JSON.stringify(arrayElement));
+    var obj = JSON.parse(localStorage.getItem('miDiagrama'));
+    console.log(obj);
+   
+   
+   
+        var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.parse(localStorage.getItem('miDiagrama')));
+        // what to return in order to show download window?
+
+    this.setAttribute("href", "data:"+data);
+    this.setAttribute("download", "data.json");
   }); 
 }
 
@@ -496,10 +566,11 @@ function handleDragStop( event, ui ) {
 function exportJson(el) {
 
 
-    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(localStorage.getItem('miDiagrama')));
-    // what to return in order to show download window?
+    // var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(localStorage.getItem('miDiagrama')));
+        // what to return in order to show download window?
 
-    el.setAttribute("href", "data:"+data);
-    el.setAttribute("download", "data.json");
+    // el.setAttribute("href", "data:"+data);
+    // el.setAttribute("download", "data.json");
     
 }
+

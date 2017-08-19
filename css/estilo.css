@@ -160,6 +160,27 @@ textarea {
   position: relative;
 }
 
+/*-----Doble flecha-----------------*/
+/*.line2:before,*/
+/*.line2:after {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  left: 0;*/
+/*  border-style: solid;*/
+/*  border-color: red transparent;*/
+/*}*/
+/*.line2:after {*/
+/*  top: 0;*/
+/*  transform: translate(-40%, -50%);*/
+/*  border-width: 0 10px 20px 10px;*/
+/*}*/
+/*.line2:before {*/
+/*  bottom: 0;*/
+/*  transform: translate(-40%, 50%);*/
+/*  border-width: 20px 10px 0 10px;*/
+/*}*/
+/*-----Doble flecha-----------------*/
+
 .line2:after {
   content: '';
   position: absolute;
@@ -210,7 +231,7 @@ textarea {
   position: relative;
 }
 
-.line4:after {
+.line4:before , .line4:after {
 	content: "";
     position: absolute;
 	background-color: red;
@@ -223,5 +244,9 @@ textarea {
     transform: rotate(270deg);
 	top: -6px;
     left: -7px;
+}
+
+.line4:after{
+    right: 0;
 }
 

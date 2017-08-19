@@ -7,17 +7,26 @@ class Usuario {
         this.imagen = obj.imagen;
     }
 }
-class Elemento {
+
+class Elementos {
     constructor (obj){
-        this.usuario = obj.usuario;
-        this.posx = obj.user;
-        this.posy = obj.pass;
-        this.div = obj.div;
+        this.html = obj.html;
+        
+    }
+}
+
+class Figura {
+    constructor (obj){
+        this.nombre = obj.nombre;
+        this.posx = obj.posx;
+        this.posy = obj.posy;
     }
 }
 
 
+
 var json = {"usuarios":[{"id":1,"user":"admin1","pass":"1234","imagen":"images/users/1.png"},{"id":2,"user":"hugo","pass":"batman","imagen":"images/users/2.png"},{"id":3,"user":"juancarlos","pass":"spiderman","imagen":"images/users/3.png"}]};
+var jsonHtml = {"html":[{}]};
 
 
 function loadJSON (json){
