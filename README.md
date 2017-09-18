@@ -1,3 +1,4 @@
+
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
@@ -6,21 +7,16 @@
     ----------------------------------------------------------------- 
 
 
-Hi there! Welcome to Cloud9 IDE!
+Welcome to your Node.js project on Cloud9 IDE!
 
-To get you started, we included a small hello world application.
+This chat example showcases how to use `socket.io` with a static `express` server.
 
-1) Open the hello-world.html file
+## Running the server
 
-2) Click on the Preview button to open a live preview pane
+1) Open `server.js` and start the app by clicking on the "Run" button in the top menu.
 
-3) Make some changes to the file, save, watch the preview, and have fun!
+2) Alternatively you can launch the app from the Terminal:
 
-Happy coding!
-The Cloud9 IDE team
+    $ node server.js
 
-
-## Support & Documentation
-
-Visit http://docs.c9.io for documentation, or http://support.c9.io for support.
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+Once the server is running, open the project in the shape of 'https://projectname-username.c9users.io/'. As you enter your name, watch the Users list (on the left) update. Once you press Enter or Send, the message is shared with all connected clients.

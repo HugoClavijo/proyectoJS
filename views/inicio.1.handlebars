@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Diagrama</a></li>
+        <!--<li id="nuevoDiagrama"><a href="#">Nuevo</a></li>-->
+        <li><a href = "#" id = "exportar" class="btnExportar" download=""><i class="icon-download"></i> Exportar json</a></li>
+      </ul>
+
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li id="logoutBtn"><a href="/auth/logout"><span >Salir</span></a></li>
+      </ul>
+      
+             
+
+      {{#if isAuthenticated}}  
+      <ul class="nav navbar-nav navbar-right">
+        <li id="logoutBtn">
+          <a href="#">
+          <span id="nombreuser" value={{user.nombre}}>
+           Bienvenido:  {{user.nombre}}
+           {{!--{{user.id}}--}}
+          </span>
+          </a>
+        </li>
+      </ul>
+      {{/if}}
+      
+    </div>
+  </div>
+</nav>
+
+   <br>
+    <div id="contentoptions" class="container-fluid">
+   <div class="form-group">
+    <label for="usr">Titulo:</label> <label id="titulodiagrama"></label>
+   </div>
+   
+  <div class="form-group">
+    <label for="usr">Version: </label> <label id="versione"> 1 </label>
+    <select id="selecFlujo">
+				<option>Mis Flujos</option>
+		</select>
+  </div>
+  </div>
+  
+   <div id="p-editor">
+        <h2>Editor</h2>
+        <textarea rows="10" cols="50"></textarea>
+        <br />
+        <button class="color" type="button">Cambiar Color</button>
+        <button class="save" type="button">Guardar</button>
+        <button class="done" type="button">Cerrar</button>
+        <button class="delete" type="button">Borrar</button>
+    </div>
+    
+     <div id="c-editor">
+        <h2>Editor</h2>
+        <br />
+        <button class="rotar" type="button">Rotar</button>
+        <button class="done" type="button">Cerrar</button>
+        <button class="delete" type="button">Borrar</button>
+    </div>
+   
+
+<div class="jumbotron">   
+<div id="content" style="height: 600px;">
+</div>
+</div>
+
+    <div id="contentoptions" class="container-fluid">
+<button id="add-ini" class="btn-primary">Insertar Inicio/Fin</button>
+<button id="add-pro" class="btn-primary">Insertar Proceso</button>        
+<button id="add-des" class="btn-primary">Insertar Desición</button>
+<button id="add-en" class="btn-primary">Insertar Entrada</button>
+<button id="add-up" class="btn-primary">Conector 1</button>
+<button id="add-2" class="btn-primary">Conector 2</button> 
+<button id="add-3" class="btn-primary">Conector 3</button> 
+<button id="add-4" class="btn-primary">Conector 4</button>            
+<button id="guardar" class="btn-success">Guardar</button>
+<button id="clear" class="btn-danger">Borrar</button> 
+<button id="mostrarDiagrama" class="btn-default">Mostrar</button>
+<!--<button id="download" class="btn-default">Consola Json</button> -->
+</div> 
+  
+    
+    <br>
+    <div class="container-fluid"> 
+    <div id="elements-container" class="row"></div>
+    </div>    
+
+</body>
+</html>
+
